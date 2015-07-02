@@ -1,0 +1,42 @@
+# cd's to make navigation easier
+alias cs="cd /home/ryan/Dropbox/Ryan/School/CurrentClasses"
+
+# listing directory candy
+alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+
+# ssh aliases
+alias guru="ssh -i ~/.ssh/id_rsa_guru -p 10022 ryanb@phpdev.gurutech.ws"
+
+# webdev macros
+alias webserver="sudo systemctl start nginx && sudo systemctl start php-fpm"
+mkmod() {
+	for i
+	do mkdir $i
+		mkdir $i/view
+		mkdir $i/provider
+		mkdir $i/controller
+		mkdir $i/resource
+		touch $i/view/empty
+		touch $i/provider/empty
+		touch $i/controller/empty
+		touch $i/resource/empty
+	done
+}
+
+# I don't want to use vi
+alias vi="vim"
+
+# tools
+alias less="less -r"
+
+# what was already here and is nice to have
+alias grep='grep --color=tty -d skip'
+alias cp="cp -i"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -h'                      # human-readable sizes
+alias np='nano PKGBUILD'
+alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman-mirrors -g && sudo pacman -Syyuu  && 
+sudo pacman -Suu'
+
