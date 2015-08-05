@@ -1,6 +1,10 @@
 # cd's to make navigation easier
 alias cs="cd /home/ryan/Dropbox/Ryan/School/CurrentClasses"
 
+# nocorrects
+alias cd="nocorrect cd"
+alias cordova="nocorrect cordova"
+
 # listing directory candy
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
@@ -8,6 +12,7 @@ alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --colo
 
 # ssh aliases
 alias phpdev="ssh -i ~/.ssh/id_rsa_guru -p 10022 ryanb@phpdev.gurutech.ws"
+alias gurussh="ssh -i ~/.ssh/id_rsa_guru"
 
 # webdev macros
 alias webserver="sudo systemctl start nginx && sudo systemctl start php-fpm"
@@ -24,12 +29,17 @@ mkmod() {
 		touch $i/resource/empty
 	done
 }
+alias httpgrp="sudo chgrp -R http ."
 
 # I don't want to use vi
 alias vi="vim"
 
 # tools
 alias less="less -r"
+pngreduce() {
+	pngcrush -reduce -brute $1 dest.png
+	mv dest.png $1
+}
 
 # what was already here and is nice to have
 alias grep='grep --color=tty -d skip'
