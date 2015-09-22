@@ -1,5 +1,6 @@
 # cd's to make navigation easier
-alias cs="cd /home/ryan/Dropbox/Ryan/School/CurrentClasses"
+alias cs="cd /home/ryan/Dropbox/Ryan/School/CurrentClasses/cs5200/"
+alias cd="nocorrect cd"
 
 # nocorrects
 alias cd="nocorrect cd"
@@ -15,9 +16,10 @@ alias gfo='git fetch origin --prune'
 
 # ssh aliases
 alias phpdev="ssh -p 10022 ryanb@phpdev.gurutech.ws"
+alias aws="rdesktop -g 1366x720 -P -z -x l -r sound:off -u Administrator -p 4LpLNu-AcA 52.26.226.154"
 
 # webdev macros
-alias webserver="sudo systemctl start nginx && sudo systemctl start php-fpm"
+alias webserver="sudo systemctl start nginx && sudo systemctl start php-fpm && sudo systemctl start mysqld"
 mkmod() {
 	for i
 	do mkdir $i
