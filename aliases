@@ -10,9 +10,11 @@ alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=au
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 
+# git alias fixes
+alias gfo='git fetch origin --prune'
+
 # ssh aliases
-alias phpdev="ssh -i ~/.ssh/id_rsa_guru -p 10022 ryanb@phpdev.gurutech.ws"
-alias gurussh="ssh -i ~/.ssh/id_rsa_guru"
+alias phpdev="ssh -p 10022 ryanb@phpdev.gurutech.ws"
 
 # webdev macros
 alias webserver="sudo systemctl start nginx && sudo systemctl start php-fpm"
@@ -23,10 +25,12 @@ mkmod() {
 		mkdir $i/provider
 		mkdir $i/controller
 		mkdir $i/resource
+		mkdir $i/scss
 		touch $i/view/empty
 		touch $i/provider/empty
 		touch $i/controller/empty
 		touch $i/resource/empty
+		touch $i/scss/empty
 	done
 }
 alias httpgrp="sudo chgrp -R http ."
@@ -49,4 +53,10 @@ alias free='free -h'                      # human-readable sizes
 alias np='nano PKGBUILD'
 alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman-mirrors -g && sudo pacman -Syyuu  && 
 sudo pacman -Suu'
+
+# background images
+background() {
+	back=$(xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitorHDMI-$1/workspace0/last-image)
+	viewnior $back
+}
 
