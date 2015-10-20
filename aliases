@@ -20,7 +20,7 @@ alias grepa='alias | grep'
 # ssh aliases
 alias phpdev="ssh -p 10022 ryanb@phpdev.gurutech.ws"
 alias aws="rdesktop -g 1366x720 -P -z -x l -r sound:off -u Administrator -p 4LpLNu-AcA 52.26.226.154"
-alias aws-work="rdesktop -g 1920x1060 -P -z -x l -r sound:off -u Administrator -p 4LpLNu-AcA 52.26.226.154"
+alias aws-work="rdesktop -g 1920x1020 -P -z -x l -r sound:off -u Administrator -p 4LpLNu-AcA 52.26.226.154"
 
 # webdev macros
 alias webserver="sudo systemctl start nginx && sudo systemctl start php-fpm && sudo systemctl start mysqld"
