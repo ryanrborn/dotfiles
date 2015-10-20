@@ -14,6 +14,9 @@ alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --colo
 # git alias fixes
 alias gfo='git fetch origin --prune'
 
+# grep aliases
+alias grepa='alias | grep'
+
 # ssh aliases
 alias phpdev="ssh -p 10022 ryanb@phpdev.gurutech.ws"
 alias aws="rdesktop -g 1366x720 -P -z -x l -r sound:off -u Administrator -p 4LpLNu-AcA 52.26.226.154"
