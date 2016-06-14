@@ -1,5 +1,6 @@
 # cd's to make navigation easier
-alias cs="cd /home/ryan/Dropbox/Ryan/School/CurrentClasses/cs5200/"
+alias crew="cd /home/ryan/dev/crewtracks"
+alias doc="cd /home/ryan/dev/docntrack"
 alias cd="nocorrect cd"
 
 # nocorrects
@@ -13,33 +14,17 @@ alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --colo
 
 # git alias fixes
 alias gfo='git fetch origin --prune'
+alias glola='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --all --author-date-order'
+alias glol='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --author-date-order'
+alias gmod='git merge origin/dev'
 
 # grep aliases
 alias grepa='alias | grep'
 
 # ssh aliases
 alias phpdev="ssh -p 10022 ryanb@phpdev.gurutech.ws"
-alias aws="rdesktop -g 1366x720 -P -z -x l -r sound:off -u Administrator -p 4LpLNu-AcA 52.26.226.154"
-alias aws-work="rdesktop -g 1920x1020 -P -z -x l -r sound:off -u Administrator -p 4LpLNu-AcA 52.26.226.154"
-
-# webdev macros
-alias webserver="sudo systemctl start nginx && sudo systemctl start php-fpm && sudo systemctl start mysqld"
-mkmod() {
-	for i
-	do mkdir $i
-		mkdir $i/view
-		mkdir $i/provider
-		mkdir $i/controller
-		mkdir $i/resource
-		mkdir $i/scss
-		touch $i/view/empty
-		touch $i/provider/empty
-		touch $i/controller/empty
-		touch $i/resource/empty
-		touch $i/scss/empty
-	done
-}
-alias httpgrp="sudo chgrp -R http ."
+alias tphpdev="ssh -L 33006:localhost:3306 ryanb@phpdev.gurutech.ws -p 10022"
+alias dncprod="ssh -i /home/ryan/.ssh/docntrackn.pem ubuntu@app.docandtrack.com"
 
 # I don't want to use vi
 alias vi="vim"
@@ -61,8 +46,8 @@ alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman-mirrors -g && sudo
 sudo pacman -Suu'
 
 # background images
-background() {
-	back=$(xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitorHDMI-$1/workspace0/last-image)
-	viewnior $back
-}
+alias background='gsettings get org.gnome.desktop.background picture-uri'
+
+# npm exec
+alias npm-exec='PATH=$(npm bin):$PATH'
 

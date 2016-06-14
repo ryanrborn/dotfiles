@@ -53,7 +53,7 @@ plugins=(git abd archlinux colored-man colorize command-not-found compleat redis
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ryan/.gem/ruby/2.2.0/bin:/home/ryan/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools"
+export PATH="/home/ryan/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ryan/.gem/ruby/2.2.0/bin:/home/ryan/Android/Sdk/platform-tools:/home/ryan/Android/Sdk/tools"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -88,10 +88,16 @@ source $HOME/.aliases
 # keychain for ssh keys
 eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa_guru)
 
-# disable seahorse prompt for cli passwords
-unset SSH_ASKPASS
-
-
 # virtualenv stuff
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
+#export WORKON_HOME=~/.virtualenvs
+#source /usr/bin/virtualenvwrapper.sh
+
+# JAVA_HOME
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+
+# ANDROID_HOME
+export ANDROID_HOME=/home/ryan/Android/Sdk
+
+# Default text editor
+export EDITOR=vim
+
