@@ -19,6 +19,14 @@ alias glol='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Cre
 alias gmod='git merge origin/dev'
 alias gmo='git merge origin/$(git_current_branch)'
 
+gtag() {
+	if (( $# != 2 ))
+		then echo "gtag required 2 arguments: -a \$1 -m \$2";
+	else
+		git tag -a $1 -m $2
+	fi
+}
+
 # grep aliases
 alias grepa='alias | grep'
 
