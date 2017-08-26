@@ -14,10 +14,12 @@ alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --colo
 
 # git alias fixes
 alias gfo='git fetch origin --prune'
+alias gfa='git fetch --all --prune --tags'
 alias glola='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --all --author-date-order'
 alias glol='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --author-date-order'
 alias gmod='git merge origin/dev'
 alias gmo='git merge origin/$(git_current_branch)'
+alias gsti='git stash -p'
 
 gtag() {
 	if (( $# != 2 ))
@@ -25,6 +27,22 @@ gtag() {
 	else
 		git tag -a $1 -m $2
 	fi
+}
+
+grl() {
+	if (( $# == 0 ))
+		then git rev-list --left-right --count master...$(git_current_branch);
+	elif (( $# == 1 ))
+		then git rev-list --left-right --count master...$1
+	elif (( $# == 2 ))
+		then git rev-list --left-right --count $1...$2
+	else
+		echo "What the what?"
+	fi
+}
+
+grla() {
+	git for-each-ref --shell --format='printf "%-30s %5s | %-5s\n" $(echo -en "%(refname:short)") $(git rev-list --left-only --count master...%(refname)) $(git rev-list --right-only --count master...%(refname))' refs/heads/ | sh;
 }
 
 # grep aliases
