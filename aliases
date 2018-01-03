@@ -20,12 +20,22 @@ alias glol='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Cre
 alias gmod='git merge origin/dev'
 alias gmo='git merge origin/$(git_current_branch)'
 alias gsti='git stash -p'
+alias ggpush='git push origin $(git_current_branch) --tags'
 
 gtag() {
 	if (( $# != 2 ))
 		then echo "gtag required 2 arguments: -a \$1 -m \$2";
 	else
 		git tag -a $1 -m $2
+	fi
+}
+
+grtag() {
+	if (( $# != 1 ))
+		then echo "grtag requires 1 argument: the tag to delete";
+	else
+		git tag -d $1
+		git push origin :refs/tags/$1
 	fi
 }
 
@@ -80,3 +90,5 @@ alias background='gsettings get org.gnome.desktop.background picture-uri'
 # npm exec
 alias npm-exec='PATH=$(npm bin):$PATH'
 
+# fun stuff
+alias gtfo='exit'
