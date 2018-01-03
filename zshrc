@@ -53,7 +53,8 @@ plugins=(git abd archlinux colored-man colorize command-not-found compleat redis
 
 # User configuration
 
-export PATH="/home/ryan/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ryan/.gem/ruby/2.2.0/bin:/home/ryan/Android/Sdk/platform-tools:/home/ryan/Android/Sdk/tools"
+# TODO: move to a local file
+export PATH="/home/ryan/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ryan/.gem/ruby/2.2.0/bin:/home/ryan/Android/Sdk/platform-tools:/home/ryan/Android/Sdk/tools:/home/ryan/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,16 +87,20 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 
 # keychain for ssh keys
+# TODO: perhaps not needed, otherwise, move to local file
 eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa_guru)
 
 # virtualenv stuff
+# TODO: move to local file where needed
 #export WORKON_HOME=~/.virtualenvs
 #source /usr/bin/virtualenvwrapper.sh
 
 # JAVA_HOME
+# TODO: move to local file
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 # ANDROID_HOME
+# TODO: move to local file
 export ANDROID_HOME=/home/ryan/Android/Sdk
 
 # Default text editor
