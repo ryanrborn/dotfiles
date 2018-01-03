@@ -86,23 +86,9 @@ source $ZSH/oh-my-zsh.sh
 
 source $HOME/.aliases
 
-# keychain for ssh keys
-# TODO: perhaps not needed, otherwise, move to local file
-eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa_guru)
-
-# virtualenv stuff
-# TODO: move to local file where needed
-#export WORKON_HOME=~/.virtualenvs
-#source /usr/bin/virtualenvwrapper.sh
-
-# JAVA_HOME
-# TODO: move to local file
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
-
-# ANDROID_HOME
-# TODO: move to local file
-export ANDROID_HOME=/home/ryan/Android/Sdk
-
 # Default text editor
 export EDITOR=vim
 
+if [[ -a $HOME/.lzshrc ]]; then
+	source $HOME/.lzshrc
+fi
