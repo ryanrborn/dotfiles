@@ -20,13 +20,16 @@ alias glol='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Cre
 alias gmod='git merge origin/dev'
 alias gmo='git merge origin/$(git_current_branch)'
 alias gsti='git stash -p'
-alias ggpush='git push origin $(git_current_branch) --tags'
+alias ggpush='git push origin $(git_current_branch)'
+alias gba='git --no-pager branch -a'
+alias gfat='git tag -l | xargs git tag -d; git fetch --tags'
 
 gtag() {
 	if (( $# != 2 ))
 		then echo "gtag required 2 arguments: -a \$1 -m \$2";
 	else
 		git tag -a $1 -m $2
+		git push origin refs/tags/$1
 	fi
 }
 
