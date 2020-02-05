@@ -95,3 +95,6 @@ alias npm-exec='PATH=$(npm bin):$PATH'
 
 # fun stuff
 alias gtfo='exit'
+
+# ip link colorize
+alias ip='ip --color=always'

@@ -49,7 +49,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git abd archlinux colored-man colorize command-not-found compleat redis-cli web-search)
+plugins=(git archlinux colorize command-not-found compleat redis-cli web-search)
 
 # User configuration
 
@@ -85,6 +85,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source $HOME/.aliases
+
+. ~/dev/posh-git-sh/git-prompt.sh
+PROMPT='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m %{$fg_bold[blue]%}%(!.%1~.%~) $(__posh_git_echo)%{$fg_bold[blue]%}$(prompt_char)%{$reset_color%} '
 
 # Default text editor
 export EDITOR=vim
