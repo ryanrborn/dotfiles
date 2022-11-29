@@ -1,11 +1,12 @@
 # cd's to make navigation easier
-alias crew="cd /home/ryan/dev/crewtracks"
-alias doc="cd /home/ryan/dev/docntrack"
+alias sr="cd /home/ryan/dev/salesrabbit"
 alias cd="nocorrect cd"
 
 # nocorrects
 alias cd="nocorrect cd"
 alias cordova="nocorrect cordova"
+alias oc="nocorrect oc"
+alias docker="nocorrect docker"
 
 # listing directory candy
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
@@ -23,6 +24,8 @@ alias gsti='git stash -p'
 alias ggpush='git push origin $(git_current_branch)'
 alias gba='git --no-pager branch -a'
 alias gfat='git tag -l | xargs git tag -d; git fetch --tags'
+alias gb='git --no-pager branch'
+alias gba='git branch -a'
 
 gtag() {
 	if (( $# != 2 ))
@@ -61,15 +64,8 @@ grla() {
 # grep aliases
 alias grepa='alias | grep'
 
-# ssh aliases
-alias phpdev="ssh -p 10022 ryanb@phpdev.gurutech.ws"
-alias dncprod="ssh -i /home/ryan/.ssh/docntrackn.pem ubuntu@app.docandtrack.com"
-
 # I don't want to use vi
 alias vi="vim"
-
-# update mirrorlists
-alias update-mirrorlists="sudo reflector --age 4 --fastest 64 --latest 32 --number 16 --sort rate --save /etc/pacman.d/mirrorlist"
 
 # tools
 alias less="less -r"
@@ -83,12 +79,6 @@ alias grep='grep --color=tty -d skip'
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -h'                      # human-readable sizes
-alias np='nano PKGBUILD'
-alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman-mirrors -g && sudo pacman -Syyuu  && 
-sudo pacman -Suu'
-
-# background images
-alias background='gsettings get org.gnome.desktop.background picture-uri'
 
 # npm exec
 alias npm-exec='PATH=$(npm bin):$PATH'
@@ -98,3 +88,7 @@ alias gtfo='exit'
 
 # ip link colorize
 alias ip='ip --color=always'
+
+# terraform
+alias tf='terraform'
+

@@ -45,16 +45,17 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# TODO: move to a local file
+export PATH="$PATH:/home/ryan/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ryan/.gem/ruby/2.2.0/bin:/home/ryan/Android/Sdk/platform-tools:/home/ryan/Android/Sdk/tools:/home/ryan/bin:/home/ryan/.local/bin"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux colorize command-not-found compleat redis-cli web-search)
+plugins=(git colorize command-not-found compleat redis-cli web-search terraform zsh-autosuggestions asdf)
 
 # User configuration
 
-# TODO: move to a local file
-export PATH="/home/ryan/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ryan/.gem/ruby/2.2.0/bin:/home/ryan/Android/Sdk/platform-tools:/home/ryan/Android/Sdk/tools:/home/ryan/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,8 +87,8 @@ source $ZSH/oh-my-zsh.sh
 
 source $HOME/.aliases
 
-. ~/dev/posh-git-sh/git-prompt.sh
-PROMPT='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m %{$fg_bold[blue]%}%(!.%1~.%~) $(__posh_git_echo)%{$fg_bold[blue]%}$(prompt_char)%{$reset_color%} '
+. ~/dev/libs/posh-git-sh/git-prompt.sh
+PROMPT='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m %{$fg_bold[blue]%}%(!.%1~.%~) $(__posh_git_echo)%{$fg_bold[blue]%}%(!.#.$)%{$reset_color%} '
 
 # Default text editor
 export EDITOR=vim
@@ -95,3 +96,33 @@ export EDITOR=vim
 if [[ -a $HOME/.lzshrc ]]; then
 	source $HOME/.lzshrc
 fi
+
+# NVM
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# JAVA_HOME from asdf
+. ~/.asdf/plugins/java/set-java-home.zsh
+
+# AVN
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# GCloud
+# source /opt/google-cloud-sdk/path.zsh.inc
+
+# Load OpenShift completions if oc is installed:
+function oc() {  # Only load completions after first run
+	if [[ -n "${commands[oc]}" ]]; then
+		unset -f oc
+		source <(oc completion zsh)
+		compdef_oc oc
+		oc $@
+	else
+		echo "zsh: command not found: oc"
+	fi
+}
+
+# IEX history
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
