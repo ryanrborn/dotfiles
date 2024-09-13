@@ -7,6 +7,8 @@ alias cd="nocorrect cd"
 alias cordova="nocorrect cordova"
 alias oc="nocorrect oc"
 alias docker="nocorrect docker"
+alias podman="nocorrect podman"
+alias kubectl="nocorrect kubectl"
 
 # listing directory candy
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'

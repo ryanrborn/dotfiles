@@ -46,7 +46,7 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # TODO: move to a local file
-export PATH="$PATH:/home/ryan/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ryan/.gem/ruby/2.2.0/bin:/home/ryan/Android/Sdk/platform-tools:/home/ryan/Android/Sdk/tools:/home/ryan/bin:/home/ryan/.local/bin"
+export PATH="$PATH:$FLYCTL_INSTALL/bin:/home/ryan/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ryan/.gem/ruby/2.2.0/bin:/home/ryan/Android/Sdk/platform-tools:/home/ryan/Android/Sdk/tools:/home/ryan/bin:/home/ryan/.local/bin"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -101,9 +101,6 @@ fi
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-# JAVA_HOME from asdf
-. ~/.asdf/plugins/java/set-java-home.zsh
-
 # AVN
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
@@ -126,3 +123,4 @@ function oc() {  # Only load completions after first run
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(mise activate zsh)"
